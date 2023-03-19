@@ -111,10 +111,10 @@ const tax = getMonthlyTax();
 const nhifDeductions = NHIF();
 const nssfDeductions = NSSF();
 const gSalary = grossSalary();
-const nSalary = getNetSalary(basicSalary, basicSalary);
+const nSalary = getNetSalary(basicSalary, basicSalary); // calling out the functions to execute the calculations
 
 console.log(`PAYEE: ${tax}`)
 console.log(`NHIF Deductions: ${nhifDeductions}`) // this is called  string intrapolation
 console.log(`NSSF Deductions: ${nssfDeductions}`)
 console.log(`Gross Salary: ${gSalary}`)
-console.log(`Net Salary: ${nSalary}`)
+console.log(`Net Salary: ${nSalary}`) // outputting the functions

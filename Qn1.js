@@ -2,19 +2,19 @@ let input = prompt("Enter the Student's marks");
 var marks = parseInt(input); //Only interger input will be accepted
 // the user now input data that the following criteria will be run
 if(marks>79 && marks<=100) {
-     return 'A'
+     console.log("A") 
 }
 else if(marks>=60 && marks<=79){
-     return 'B'
+     console.log("B") 
 }
 else if(marks>49 && marks<=59) {
-     return 'C'
+     console.log("C") 
 }
 else if(marks>=40 && marks<=49) {
-     return 'D'
+     console.log("D") 
 }
-else if(marks<40 && marks>0) {
-     return 'E'
+else if(marks<40 && marks>=0) {
+     console.log("E") 
 } else {
-    return 'ERROR!!INVALID ENTRY' // incase a number above 0-100 is input
+    console.log("ERROR!!INVALID ENTRY")// incase a number above 0-100 is input
 }

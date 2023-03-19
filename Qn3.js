@@ -1,31 +1,34 @@
-let input = prompt("basicSalary");
-let input2  = prompt("Benefits");
-var basicSalary = parseInt(input); //Only interger input will be accepted
-var Benefits = parseInt(input2)
+var bsalary = prompt("Enter the basic salary: ")
+var inputBenefits = prompt("Enter the Amount of Benefits: ")
+var basicSalary = parseInt(bsalary)//Only interger input will be accepted
+var Benefits = parseInt(inputBenefits)
 
-function netSalary () {
+function getNetSalary (basicSalary, Benefits) {
     return (basicSalary + Benefits) // when using return the output is stored
     }
-          
-    const monthlyTax = function(){
-     let netsalo =  netSalary()
-        if (netsalo=24000){
-        return (netsalo*0.1)
-    }
-    else if(netsalo>24000 && netsalo<=32333) {
+
+var netsalo = getNetSalary(basicSalary, Benefits)
+
+const getMonthlyTax = () => {
+   if (netsalo=24000){
+      return (netsalo*0.1)
+
+    } else if(netsalo>24000 && netsalo<=32333) {
          return (netsalo*0.25)
     }
-    else { return (netsalo*0.3)
+    else { 
+      return (netsalo*0.3)
     }
-   }
-   const NSSF = function() {
-    let netsalo =  netSalary()
+}  
+
+const NSSF = () => {
+   // let netsalo =  netSalary()
     if (netsalo>6000)
     return (netsalo*0.06)
    }
    
-   const NHIF = function() {
-    let netsalo =  netSalary()
+const NHIF = () => {
+   // let netsalo =  netSalary()
        if(netsalo<=5999){
         return (150)
        }
@@ -78,24 +81,40 @@ function netSalary () {
     {
          return (1300)
        }
-    else if( netsalo>=70000 && netsalo<=79999)
+    else if( netsalo >= 70000 && netsalo <= 79999)
     {
          return (1400)
        }
-    else if( netsalo>=80000 && netsalo<=89999)
+    else if( netsalo >= 80000 && netsalo <= 89999)
     {
          return (1500)
        }
-    else if( netsalo>=90000 && netsalo<=99999)
+    else if( netsalo >= 90000 && netsalo <= 99999)
     {
           return(1600)
        }
-    else if( netsalo>=100000)
+    else if( netsalo >= 100000)
     {
         return (1700)
        }
     }
     const grossSalary = function(){
-        let netsalo =  netSalary()
-        return (netSalo-(NHIF+NSSF+monthlyTax))
+       // let netsalo =  netSalary()
+        let nhif = NHIF()
+        let nssf = NSSF()
+        let monTax =  getMonthlyTax()
+        return (netsalo - (nhif + nssf + monTax))
     }
+
+    
+const tax = getMonthlyTax();
+const nhifDeductions = NHIF();
+const nssfDeductions = NSSF();
+const gSalary = grossSalary();
+const nSalary = getNetSalary(basicSalary, basicSalary);
+
+console.log(`PAYEE: ${tax}`)
+console.log(`NHIF Deductions: ${nhifDeductions}`) // this is called  string intrapolation
+console.log(`NSSF Deductions: ${nssfDeductions}`)
+console.log(`Gross Salary: ${gSalary}`)
+console.log(`Net Salary: ${nSalary}`)
